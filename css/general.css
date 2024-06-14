@@ -9,12 +9,15 @@
 
 :root{
     --font-primary: 'Roboto';
-
-    --color-primary: #5757f1;
-    --color-secons: #dbcfcf;
+    --color-one: #5757f1;
+    --color-two: #FFF;
+    --color-three: #000;
 }
 
 main{
-    background-color: var(--color-primary);
-    color: white;
+    font-family: var(--font-primary);
+    background: #4e54c8;
+    background: -webkit-linear-gradient(to top, #8f94fb, #4e54c8);
+    background: linear-gradient(to top, #8f94fb, #4e54c8);
+    color: var(--color-two);
 }
