@@ -1,28 +1,35 @@
-create database servicio;
+CREATE DATABASE servicio;
 
-use servicio;
+USE servicio;
 
-create table revisar(
-	id_revisar int primary key auto_increment,
-    descripcion varchar(20)
+CREATE TABLE `clientes` (
+  `id` INT AUTO_INCREMENT NOT NULL,
+  `nombre` VARCHAR(45) DEFAULT NULL,
+  `celular` INT(15) NOT NULL,
+  `direccion` VARCHAR(50) NOT NULL,
+  `modelo` VARCHAR(50) NOT NULL,
+  `tipo` VARCHAR(50) NOT NULL,
+  `problema` VARCHAR(20) NOT NULL,
+  `fecha` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`)
 );
 
-insert into revisar(descripcion) 
-value
+CREATE TABLE `fotos_clientes` (
+  `id` INT AUTO_INCREMENT NOT NULL,
+  `foto` VARCHAR(45) DEFAULT NULL,
+  `nombre_cliente` VARCHAR(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE problema(
+	id_problema INT PRIMARY KEY AUTO_INCREMENT,
+  descripcion VARCHAR(20)
+);
+
+INSERT INTO problema(descripcion) 
+VALUE
 ("Resivsar1"),
 ("Resivsar2"),
 ("Resivsar3"),
 ("Resivsar4"),
 ("Resivsar5");
-
-create table datos(
-	id_datos int auto_increment,
-    nombre varchar(20), 
-    celular int(15),
-    direccion varchar(50),
-    maquina varchar(20),
-    modelo varchar(20),
-    revisar varchar(20),
-    fotos varchar(100),
-    primary key(id_datos)
-);
