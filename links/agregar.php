@@ -40,46 +40,46 @@
                 <legend>Datos</legend>
                 <div>
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre">
+                    <input type="text" name="nombre" id="nombre" required>
                 </div>
                 <div>
                     <label for="celular">Celular</label>
-                    <input type="tel" name="celular" id="celular">
+                    <input type="tel" name="celular" id="celular" required>
                 </div>
                 <div>
                     <label for="direccion">Dirección</label>
-                    <input type="text" name="direccion" id="direccion">
+                    <input type="text" name="direccion" id="direccion" required>
                 </div>
             </fieldset>
 
             <fieldset>
                 <legend>Máquina</legend>
                 <div>
-                    <label for="tipo">Tipo de Máquina</label>
-                    <input type="text" name="tipo" id="tipo">
+                    <label for="tipo">Tipo</label>
+                    <input type="text" name="tipo" id="tipo" required>
                 </div>
                 <div>
                     <label for="modelo">Modelo</label>
-                    <input type="text" name="modelo" id="modelo">
+                    <input type="text" name="modelo" id="modelo" required>
                 </div>
 
+                
                 <div>
-                    <label for="problema">Problema a revisar</label>
-                    <select name="problema" id="problema">
-                        <option value="">Seleccionar Opción</option>
+                    <label for="problema">Problema</label>
+                    <select name="problema" id="problema" required>
+                        <option value="" selected disabled>Seleccionar Opción</option>
                         <?php
                                 if($conexion) {
-                                    $consultation = "SELECT *
-                                                        FROM revisar";
+                                    $consultation = "SELECT descripcion
+                                                        FROM problema";
                                     $resultado = mysqli_query($conexion,$consultation);
                             
                                     if($resultado){
                                         while($row = $resultado->fetch_array()){
-                                            $id = $row['id_revisar'];
                                             $descripcion = $row['descripcion'];
                             
                                             ?>
-                                                <option value="<?php echo $id ?>">
+                                                <option value="<?php echo $descripcion ?>">
                                                     <?php echo $descripcion ?>
                                                 </option>
                                             <?php
@@ -91,12 +91,12 @@
                 </div>
 
                 <div>
-                    <input type="file" name="uploadedFile" multiple accept="image/">
+                    <input type="file" name="fotos_maquina[]" multiple accept="image/*">
                 </div>
             </fieldset>
 
             <div>
-                <input type="submit" value="Cargar">
+                <input type="submit" name="submit" value="Cargar">
             </div>
 
 
