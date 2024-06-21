@@ -1,0 +1,39 @@
+@import url(general.css);
+
+/*CONTENEDOR GENERAL*/
+main > div:nth-child(2){
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+
+/*NUMERO DE CLIENTE Y FECHA*/
+main section:nth-child(1){
+    padding: .5rem 0;
+    margin: 1rem auto;
+    text-align: center;
+    background-color: var(--color-three) ;
+}
+
+
+/*HIJOS DE SECCION*/
+main > div:nth-child(2) > section > *{
+    font-size: 2rem;
+}
+
+/*SUBTITULOS DE LOS DATOS*/
+main > div:nth-child(2) > section > h2{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+main > div:nth-child(2) > section > h2 > hr{
+    width: 80px;
+    height: 2px;
+}
+
+main > div:nth-child(2) > section:nth-child(2) > p,
+main > div:nth-child(2) > section:nth-child(3) > p{
+    padding: 1rem 0 1rem 2rem ;
+}
