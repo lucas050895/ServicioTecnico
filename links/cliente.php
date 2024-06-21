@@ -2,7 +2,11 @@
     include('../bd/conecxion.php');
         if(isset($_GET['id'])){
 
-        $resultado = $conexion -> query ('SELECT * FROM clientes WHERE id = "'.$_GET['id'].'"')or die($conexion -> error);
+        $resultado = $conexion -> query ('SELECT c.*, c.id AS idCliente, f.* FROM clientes AS C
+                                            INNER JOIN fotos_clientes AS f
+                                            ON c.nombre = f.nombre_cliente
+                                            WHERE c.id = "'.$_GET['id'].'"')or die($conexion -> error);
+
         if(mysqli_num_rows($resultado) > 0){ 
             $fila = mysqli_fetch_row($resultado);
         }else{
@@ -59,13 +63,22 @@
                 <p>Dirección: <?php echo $fila[3] ?></p>
 
                 <h2><hr>Máquina<hr></h2>
-                <p>Modelo:  <?php echo $fila[4] ?></p>
                 <p>Tipo:  <?php echo $fila[5] ?></p>
+                <p>Modelo:  <?php echo $fila[4] ?></p>
                 <p>Problema:  <?php echo $fila[6] ?></p>
             </section>
 
             <section>
                 <h2><hr>Fotos<hr></h2>
+                <div>
+                    <?php
+                        while($fila = mysqli_fetch_array($resultado)) { 
+                            ?>
+                                <img src="../img/<?php echo $fila[10] ?>" alt="<?php echo $fila[10] ?>">
+                            <?php
+                        }
+                    ?>
+                </div>
             </section>
         </div>
     </main>
