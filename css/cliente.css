@@ -37,3 +37,15 @@ main > div:nth-child(2) > section:nth-child(2) > p,
 main > div:nth-child(2) > section:nth-child(3) > p{
     padding: 1rem 0 1rem 2rem ;
 }
+
+/*FOTOS*/
+main > div:nth-child(2) > section:nth-child(3) > div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+main > div:nth-child(2) > section:nth-child(3) > div > img{
+    width: 120px;
+    height: 120px;
+    margin: 1rem;
+}
