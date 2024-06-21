@@ -1,10 +1,5 @@
 <?php
     include('../bd/conecxion.php');
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +24,7 @@
 </head>
 <body>
     <main>
-        <div>
+        <div class="titulo">
             <i class="fas fa-search"></i>
             <h1>Buscar cliente </h1>
         </div>
@@ -38,7 +33,7 @@
             <div>
                 <div>
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" required>
+                    <input type="text" name="nombre" id="nombre">
                 </div>
                 <div>
                     <label for="direccion">Dirección</label>
@@ -55,79 +50,62 @@
 
 
             <table>
-
                 <tr>
                     <th>Nombre</th>
                     <th>Dirección</th>
+                    <th></th>
                 </tr>
-
             </table>
 
         <div>
             <?php
 
                 if(isset($_GET["nombre"]) && $_GET["nombre"] != ''){
-
                     $nombre = $_GET['nombre'];
-
                     $resultado = $conexion -> query("SELECT * FROM clientes WHERE nombre LIKE '$nombre%' ")or die($conexion -> error);
-
                     if($resultado->num_rows > 0 ){
-                        
                         while($fila = mysqli_fetch_array($resultado)){
+                            $nombre = $fila['nombre'];
+                            $direccion = $fila['direccion'];
+                            $id = $fila['id'];
+                            
                             ?>
-
-
-                            <table>
-
-                                <tr>
-                                    <th><?php echo $fila['nombre']; ?></th>
-                                    <th><?php echo $fila['direccion']; ?></th>
-                                </tr>
-
-                            </table>
-
+                                <table>
+                                    <tr class="info">
+                                        <th><?php echo $nombre; ?>
+                                        <th><?php echo $direccion; ?>
+                                        <th><a href="cliente.php?id=<?php echo $id?>">Ver cliente</a></th>
+                                    </tr>
+                                </table>
                             <?php
                         };
                     }else{
                         echo "<h2>" . "No hay clientes registrado con ese nombre" . "</h2>";
                     }
                 }
-
-
                 if(isset($_GET["direccion"]) && $_GET["direccion"] != ''){
-
                     $direccion = $_GET['direccion'];
-
                     $resultado = $conexion -> query("SELECT * FROM clientes WHERE direccion LIKE '$direccion%' ")or die($conexion -> error);
-
                     if($resultado->num_rows > 0 ){
                         
                         while($fila = mysqli_fetch_array($resultado)){
+                            $nombre = $fila['nombre'];
+                            $direccion = $fila['direccion'];
+                            
                             ?>
-                            <table>
-
-                                <tr>
-                                    <th><?php echo $fila['nombre']; ?></th>
-                                    <th><?php echo $fila['direccion']; ?></th>
-                                </tr>
-
-                            </table>
+                                <table>
+                                    <tr>
+                                        <th><?php echo $nombre; ?></th>
+                                        <th><?php echo $direccion ?></th>
+                                    </tr>
+                                </table>
                             <?php
                         };
                     }else{
-                        echo "<h2>" . "No hay clientes registrado con esa direccion" . "</h2>";
+                        echo "<h2>" . "No hay clientes registrado con esa dirección" . "</h2>";
                     }
                 }
-
                 $conexion ->close();
-
-
-            
-
-
-                
-
             ?>
         </div>
     </main>
