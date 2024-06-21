@@ -21,7 +21,7 @@
 <body>
 <body>
     <main>
-        <div>
+        <div class="titulo">
             <i class="fas fa-user-alt"></i>
             <h1>Carga de Clientes</h1>
         </div>
