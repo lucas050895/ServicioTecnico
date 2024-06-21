@@ -14,10 +14,38 @@
     --color-three: #000;
 }
 
+/*CONTENEDOR GENERAL*/
 main{
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 3rem 0;
     font-family: var(--font-primary);
     background: #4e54c8;
     background: -webkit-linear-gradient(to top, #8f94fb, #4e54c8);
     background: linear-gradient(to top, #8f94fb, #4e54c8);
     color: var(--color-two);
+}
+
+/*CONTENEDOR DEL TITULO*/
+main > .titulo{
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+/*TITULO E ICONO*/
+main > .titulo > *{
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+
+/*ADATPACION*/
+@media screen and (min-width: 700px) {
+    main > .titulo{
+        flex-direction: row;
+    }
 }
