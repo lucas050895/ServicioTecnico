@@ -24,18 +24,12 @@
 </head>
 <body>
     <main>
+        <div class="titulo">
+            <i class="far fa-address-card"></i>
+            <h1>Cargar Cliente</h1>
+        </div>
         
         <form action="subir.php" method="POST" enctype="multipart/form-data">
-
-            <div>
-                <a href="../index.php">
-                    <i class="fas fa-arrow-circle-left"></i>
-                    Volver atras
-                </a>
-            </div>
-
-            <h1>Cargar Cliente</h1>
-
             <fieldset>
                 <legend>Datos</legend>
                 <div>
