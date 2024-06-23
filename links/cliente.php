@@ -70,17 +70,21 @@
 
             <section>
                 <h2><hr>Fotos<hr></h2>
-                <div>
+                <div class="gallery">
                     <?php
                         while($fila = mysqli_fetch_array($resultado)) { 
                             ?>
-                                <img src="../img/<?php echo $fila[10] ?>" alt="<?php echo $fila[10] ?>">
+                                <img src="../img/<?php echo $fila[10] ?>" alt="<?php echo $fila[10] ?>"  class="item">
                             <?php
                         }
                     ?>
+                    <div id="fullpage" onclick="this.style.display='none';"></div>
                 </div>
             </section>
         </div>
     </main>
+
+    
+    <script src="../js/main.js"></script>
 </body>
 </html>
