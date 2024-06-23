@@ -33,12 +33,12 @@
             <div>
                 <div>
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre">
+                    <input type="text" name="nombre" id="nombre" required>
                 </div>
-                <div>
+                <!-- <div>
                     <label for="direccion">Dirección</label>
                     <input type="text" name="direccion" id="direccion">
-                </div>
+                </div> -->
             </div>
 
             <div>
@@ -83,6 +83,7 @@
                         echo "<h2>" . "No hay clientes registrado con ese nombre" . "</h2>";
                     }
                 }
+                /*
                 if(isset($_GET["direccion"]) && $_GET["direccion"] != ''){
                     $direccion = $_GET['direccion'];
                     $resultado = $conexion -> query("SELECT * FROM clientes WHERE direccion LIKE '$direccion%' ")or die($conexion -> error);
@@ -104,7 +105,7 @@
                     }else{
                         echo "<h2>" . "No hay clientes registrado con esa dirección" . "</h2>";
                     }
-                }
+                }*/
                 $conexion ->close();
             ?>
         </div>
