@@ -1,5 +1,5 @@
 <?php
-    include('../bd/conecxion.php');
+    include('../bd/conexion.php');
 
     $nombre         =   ucwords($_POST['nombre']);  // Pasar a mayúsculas solo la primera letra
     $celular        =   $_POST['celular'];

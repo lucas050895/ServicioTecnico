@@ -1,5 +1,5 @@
 <?php
-    include('../bd/conecxion.php');
+    include('../bd/conexion.php');
         if(isset($_GET['id'])){
 
         $resultado = $conexion -> query ('SELECT c.*, c.id AS idCliente, f.* FROM clientes AS C

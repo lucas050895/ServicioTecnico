@@ -2,7 +2,7 @@
 // CONECXION A LA BASE DE DATOS (MYSQL)
     // $conexion = mysqli_connect("localhost","root","","lucasconde");
     $server = 'localhost';
-    $database = 'servicio';
+    $database = 'serviciotecnico';
     $username = 'root';
     $password ='';
 
